@@ -1,0 +1,128 @@
+/* Corps principal */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Conteneur principal */
+  .container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 90%;
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  /* Titre principal */
+  h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #6c63ff;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  td {
+    font-size: 1rem;
+    color: #555;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Boutons */
+  button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    color: white;
+    background-color: #6c63ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #574bdc;
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  /* Bouton supprimer */
+  button.danger {
+    background-color: #ff4d4d;
+  }
+  
+  button.danger:hover {
+    background-color: #e63939;
+  }
+  
+  /* Input texte */
+  input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  input[type="text"]:focus {
+    border-color: #6c63ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.5);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    th, td {
+      font-size: 0.8rem;
+    }
+  
+    button {
+      font-size: 0.8rem;
+      padding: 8px 12px;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  

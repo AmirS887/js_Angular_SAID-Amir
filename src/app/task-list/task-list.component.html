@@ -1,0 +1,47 @@
+<!-- <h2>Liste des tâches:
+    <ul>
+        <li *ngFor="let task of tasks; let i = index">
+            {{ task }}
+            <button (click)="removeTask(i)">Supprimer</button>
+        </li>
+    </ul>
+    <input type="text" [(ngModel)]="newTask" placeholder="Nouvelle tâche">
+
+    <button (click)="addTask()">Ajouter</button>
+    
+
+</h2> -->
+
+<h2>Liste des tâches</h2>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nom de la tâche</th>
+      <th>État</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks; let i = index">
+      <td>{{ task.name }}</td>
+      <td>
+        <input 
+          type="checkbox" 
+          [(ngModel)]="task.completed" 
+        />
+      </td>
+      <td>
+        <button (click)="removeTask(i)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<input 
+  type="text" 
+  [(ngModel)]="newTask" 
+  placeholder="Nouvelle tâche" 
+/>
+
+<button (click)="addTask()">Ajouter</button>
