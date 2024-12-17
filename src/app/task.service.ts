@@ -10,12 +10,11 @@ export class TaskService {
   ];
   constructor() { }
 
-  addTask() {
-    if(this.newTask.trim()){
-      this.tasks.push({name: this.newTask.trim(), completed: false});
-      this.newTask = '';
-    }
+  addTask(taskName: string) {
+    if(taskName.trim()){
+      this.tasks.push({name: taskName.trim(), completed: false});    }
   }
+
   removeTask(index: number){
     this.tasks.splice(index, 1)
   }
