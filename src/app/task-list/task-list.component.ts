@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import { Task } from '../task.service';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-task-list',
