@@ -1,43 +1,46 @@
 import { Injectable } from '@angular/core';
 
+export interface Task {
+  name: string;
+  completed: boolean;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  tasks: Task [] =[
-    {name: "salut",completed: false },
-    {name:"bonjour",completed: false}
-  ];
-  constructor() { }
+  private localStorageKey = 'tasks'; // Clé pour stocker les tâches dans le localStorage
 
-  addTask(taskName: string) {
-    if(taskName.trim()){
-      this.tasks.push({name: taskName.trim(), completed: false});    }
-  }
+  constructor() {}
 
-  removeTask(index: number){
-    this.tasks.splice(index, 1)
-  }
-  
-  toggleTaskState(index: number) {
-    this.tasks[index].completed = !this.tasks[index].completed; // Inverse l'état
-  }
+  // Méthode pour récupérer les tâches depuis le localStorage
   getTasks(): Task[] {
-    return this.tasks;
+    const tasks = localStorage.getItem(this.localStorageKey);
+    return tasks ? JSON.parse(tasks) : []; // Retourne les tâches ou un tableau vide si elles n'existent pas
+  }
+
+  // Méthode pour sauvegarder les tâches dans le localStorage
+  saveTasks(tasks: Task[]): void {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(tasks));
+  }
+
+  // Méthode pour ajouter une tâche
+  addTask(task: Task): void {
+    const tasks = this.getTasks();
+    tasks.push(task);
+    this.saveTasks(tasks);
+  }
+
+  // Méthode pour supprimer une tâche par son index
+  removeTask(index: number): void {
+    const tasks = this.getTasks();
+    tasks.splice(index, 1);
+    this.saveTasks(tasks);
+  }
+
+  // Méthode pour récupérer une tâche par son index
+  getTaskByIndex(index: number): Task | undefined {
+    const tasks = this.getTasks();
+    return tasks[index];
   }
 }
-
-export interface Task { 
-  name: string; 
-  completed: boolean;
- } 
-
-
- 
- 
-
-
-  
-
-
-
