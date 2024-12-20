@@ -3,6 +3,11 @@ import { Injectable } from '@angular/core';
 export interface Task {
   name: string;
   completed: boolean;
+  dueDate?: Date;      
+  creationDate: Date;  
+  assignedTo?: string; 
+  type?: string;       
+  priority?: string; 
 }
 
 @Injectable({
@@ -25,11 +30,16 @@ export class TaskService {
   }
 
   // Méthode pour ajouter une tâche
-  addTask(task: Task): void {
+  addTask(task: Partial<Task>): void {
     const tasks = this.getTasks();
-    tasks.push(task);
+    tasks.push({
+      ...task,
+      completed: task.completed || false,
+      creationDate: new Date(),
+    } as Task);
     this.saveTasks(tasks);
   }
+  
 
   // Méthode pour supprimer une tâche par son index
   removeTask(index: number): void {

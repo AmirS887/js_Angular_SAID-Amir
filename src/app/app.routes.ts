@@ -14,6 +14,7 @@ export const routes: Routes = [
     {
         path: '/task/:index',
         component: TaskDetailComponent
-    }
+    },
+    
     
 ]

@@ -1,0 +1,19 @@
+<h2>Statistiques des tâches</h2>
+
+<div>
+  <h3>Répartition des tâches (Terminées vs En cours)</h3>
+  <ngx-charts-pie-chart 
+    [results]="completedStats"
+    [view]="[400, 300]"
+    [legend]="true">
+  </ngx-charts-pie-chart>
+</div>
+
+<div>
+  <h3>Répartition des tâches par criticité</h3>
+  <ngx-charts-bar-vertical
+    [results]="priorityStats"
+    [view]="[400, 300]"
+    [legend]="true">
+  </ngx-charts-bar-vertical>
+</div>

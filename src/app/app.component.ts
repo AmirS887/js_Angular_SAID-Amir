@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TaskListComponent } from './task-list/task-list.component';
 import { RouterModule } from '@angular/router';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, TaskListComponent],
@@ -10,4 +11,11 @@ import { RouterModule } from '@angular/router';
 })
 export class AppComponent {
   title = 'task-manager';
+  @NgModule({
+    declarations: [/* ... */],
+    imports: [
+      /* ... */,
+      NgxChartsModule
+    ],
+  })
 }
